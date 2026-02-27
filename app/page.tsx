@@ -66,6 +66,9 @@ import { AdminProjectsPage } from "@/components/pages/admin-projects-page"
 import { LandingPage } from "@/components/landing/landing-page"
 import { CreateProjectModal } from "@/components/modals/create-project-modal"
 import { UploadFilesModal } from "@/components/modals/upload-files-modal"
+import { EntrepreneurDashboard } from "@/components/dashboards/entrepreneur-dashboard"
+import { TraderDashboard } from "@/components/dashboards/trader-dashboard"
+import { CreatorDashboard } from "@/components/dashboards/creator-dashboard"
 
 // Auth
 import { AuthProvider, useAuth } from "@/lib/auth/simple-auth"
@@ -182,6 +185,29 @@ const LoadingSpinner = () => (
   </div>
 )
 
+// Dashboard Selector Component
+const DashboardSelector = () => {
+  const { user } = useAuth()
+
+  if (!user) return null
+
+  // Show appropriate dashboard based on account type or role
+  if (user.accountType === "entrepreneur") {
+    return <EntrepreneurDashboard />
+  }
+
+  if (user.accountType === "trader") {
+    return <TraderDashboard />
+  }
+
+  if (user.accountType === "creator") {
+    return <CreatorDashboard />
+  }
+
+  // Default: show admin/freelancer dashboard for other roles
+  return null
+}
+
 // User Profile Dropdown Component
 function UserProfileDropdown() {
   const { user, signOut } = useAuth()
@@ -227,7 +253,7 @@ function UserProfileDropdown() {
   )
 }
 
-// Admin Dashboard Component
+// Old Admin Dashboard Component
 const AdminDashboard = () => {
   const [analytics, setAnalytics] = useState({
     totalRevenue: 0,
@@ -1099,7 +1125,90 @@ function PayVidiApp() {
     )
   }
 
-  return user ? <Dashboard /> : <LandingPage onGetStarted={() => {}} />
+  if (!user) {
+    return <LandingPage onGetStarted={() => {}} />
+  }
+
+  // Show new dashboards for new account types
+  if (user.accountType === "entrepreneur" || user.accountType === "trader" || user.accountType === "creator") {
+    return (
+      <div className="flex h-screen bg-background">
+        {/* Sidebar Navigation */}
+        <div className="hidden md:flex w-64 border-r bg-card flex-col">
+          {/* Logo */}
+          <div className="p-6 border-b">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">PV</span>
+              </div>
+              <span className="font-bold text-lg">PayVidi</span>
+            </div>
+          </div>
+
+          {/* User Info */}
+          <div className="p-6 border-b space-y-2">
+            <div className="flex items-center gap-3">
+              <ColorfulAvatar name={user.full_name} email={user.email} size="md" />
+              <div className="flex-1 min-w-0">
+                <p className="font-medium text-sm truncate">{user.full_name}</p>
+                <ColorfulBadge variant="role" value={user.accountType || user.role} className="text-xs w-fit">
+                  {user.accountType?.charAt(0).toUpperCase()}
+                  {user.accountType?.slice(1) || user.role}
+                </ColorfulBadge>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Items */}
+          <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+            <Button variant="ghost" className="w-full justify-start">
+              <Briefcase className="mr-2 h-4 w-4" />
+              Dashboard
+            </Button>
+            <Button variant="ghost" className="w-full justify-start">
+              <BarChart3 className="mr-2 h-4 w-4" />
+              Analytics
+            </Button>
+            <Button variant="ghost" className="w-full justify-start">
+              <Settings className="mr-2 h-4 w-4" />
+              Settings
+            </Button>
+          </nav>
+
+          {/* Logout */}
+          <div className="p-6 border-t space-y-2">
+            <UserProfileDropdown />
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 overflow-auto flex flex-col">
+          {/* Header */}
+          <div className="h-16 border-b bg-card flex items-center justify-between px-6">
+            <h1 className="text-xl font-bold">
+              {user.accountType === "entrepreneur" && "Entrepreneur Dashboard"}
+              {user.accountType === "trader" && "Trader Dashboard"}
+              {user.accountType === "creator" && "Creator Dashboard"}
+            </h1>
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" size="sm">
+                <Bell className="h-5 w-5" />
+              </Button>
+              <UserProfileDropdown />
+            </div>
+          </div>
+
+          {/* Page Content */}
+          <div className="flex-1 overflow-auto p-6">
+            <DashboardSelector />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Default: show admin/freelancer dashboard for other roles
+  return <Dashboard />
 }
 
 // Root Component with Auth Provider
