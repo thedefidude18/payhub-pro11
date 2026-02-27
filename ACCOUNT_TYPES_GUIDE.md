@@ -61,7 +61,7 @@ During signup, users must select their account type with visual indicators:
 
 To persist these new account types in production, update the users table:
 
-```sql
+\`\`\`sql
 ALTER TABLE users ADD COLUMN account_type VARCHAR(50) 
 CHECK (account_type IN ('entrepreneur', 'trader', 'creator'));
 
@@ -88,11 +88,11 @@ CREATE TABLE creator_profiles (
   follower_count INTEGER,
   created_at TIMESTAMP
 );
-```
+\`\`\`
 
 ## Frontend Files Structure
 
-```
+\`\`\`
 /components/dashboards/
 ├── entrepreneur-dashboard.tsx
 ├── trader-dashboard.tsx
@@ -101,7 +101,7 @@ CREATE TABLE creator_profiles (
 /components/auth/
 ├── simple-login.tsx (updated with signup flow)
 └── simple-auth.tsx (updated with account types)
-```
+\`\`\`
 
 ## Key Features
 
