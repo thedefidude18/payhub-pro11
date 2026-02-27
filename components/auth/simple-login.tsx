@@ -64,12 +64,12 @@ export function SimpleLoginForm() {
 
   // Demo accounts for testing
   const demoAccounts = [
-    { email: "admin@payvidi.com", password: "admin123", role: "Admin" },
+    { email: "admin@payveri.com", password: "admin123", role: "Admin" },
     { email: "john@designer.com", password: "freelancer123", role: "Freelancer" },
     { email: "sarah@creative.com", password: "super123", role: "SuperFreelancer" },
-    { email: "entrepreneur@payvidi.com", password: "entrepreneur123", role: "Entrepreneur" },
-    { email: "trader@payvidi.com", password: "trader123", role: "Trader" },
-    { email: "creator@payvidi.com", password: "creator123", role: "Creator" },
+    { email: "entrepreneur@payveri.com", password: "entrepreneur123", role: "Entrepreneur" },
+    { email: "trader@payveri.com", password: "trader123", role: "Trader" },
+    { email: "creator@payveri.com", password: "creator123", role: "Creator" },
   ]
 
   const handleDemoLogin = async (demoEmail: string, demoPassword: string) => {
@@ -88,10 +88,8 @@ export function SimpleLoginForm() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <span className="text-white font-bold text-xl">PV</span>
-          </div>
-          <CardTitle className="text-2xl">Welcome to PayVidi</CardTitle>
+          <img src="/favicon-black.svg" alt="PayVeri" className="w-12 h-12 mx-auto mb-4" />
+          <CardTitle className="text-2xl">Welcome to PayVeri</CardTitle>
           <CardDescription>
             {mode === "login" ? "Sign in to your account to continue" : "Create your account to get started"}
           </CardDescription>

@@ -453,7 +453,7 @@ const AdminDashboard = () => {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center space-x-2">
-                          <span>{freelancer.subdomain}.payvidi.com</span>
+                          <span>{freelancer.subdomain}.payveri.com</span>
                           {freelancer.is_verified && <Crown className="h-4 w-4 text-yellow-500" />}
                         </div>
                       </TableCell>
@@ -1012,12 +1012,10 @@ function Dashboard() {
           className={`${sidebarOpen ? "w-64" : "w-16"} bg-white border-r border-gray-200 transition-all duration-300 flex-shrink-0 ${!sidebarOpen && "lg:w-16"}`}
         >
           <div className="flex items-center justify-between p-4 border-b">
-            <div className={`flex items-center space-x-3 ${!sidebarOpen && "justify-center"}`}>
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">PV</span>
-              </div>
-              {sidebarOpen && <span className="font-bold text-xl">PayVidi</span>}
-            </div>
+  <div className={`flex items-center space-x-3 ${!sidebarOpen && "justify-center"}`}>
+          <img src="/favicon-black.svg" alt="PayVeri" className="w-8 h-8" />
+          {sidebarOpen && <span className="font-bold text-xl">PayVeri</span>}
+        </div>
             <Button
               variant="ghost"
               size="sm"
@@ -1114,7 +1112,7 @@ const FreelancerPaymentsPage = () => (
 )
 
 // Main App Component with Authentication
-function PayVidiApp() {
+function PayVeriApp() {
   const { user, loading } = useAuth()
 
   if (loading) {
@@ -1138,10 +1136,8 @@ function PayVidiApp() {
           {/* Logo */}
           <div className="p-6 border-b">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">PV</span>
-              </div>
-              <span className="font-bold text-lg">PayVidi</span>
+              <img src="/favicon-black.svg" alt="PayVeri" className="w-8 h-8" />
+              <span className="font-bold text-lg">PayVeri</span>
             </div>
           </div>
 
@@ -1212,10 +1208,10 @@ function PayVidiApp() {
 }
 
 // Root Component with Auth Provider
-export default function PayVidiPlatform() {
+export default function PayVeriPlatform() {
   return (
     <AuthProvider>
-      <PayVidiApp />
+      <PayVeriApp />
     </AuthProvider>
   )
 }

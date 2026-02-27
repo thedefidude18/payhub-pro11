@@ -20,10 +20,8 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">PV</span>
-              </div>
-              <span className="font-bold text-xl text-gray-900">PayVidi</span>
+              <img src="/favicon-black.svg" alt="PayVeri" className="w-8 h-8" />
+              <span className="font-bold text-xl text-gray-900">PayVeri</span>
             </div>
 
             {/* Desktop Navigation */}

@@ -27,10 +27,10 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 // Demo users for testing
 const DEMO_USERS: Record<string, User> = {
-  "admin@payvidi.com": {
+  "admin@payveri.com": {
     id: "admin-1",
-    email: "admin@payvidi.com",
-    full_name: "PayVidi Admin",
+    email: "admin@payveri.com",
+    full_name: "PayVeri Admin",
     role: "admin",
   },
   "john@designer.com": {
@@ -45,23 +45,23 @@ const DEMO_USERS: Record<string, User> = {
     full_name: "Sarah Johnson",
     role: "superfreelancer",
   },
-  "entrepreneur@payvidi.com": {
+  "entrepreneur@payveri.com": {
     id: "entrepreneur-1",
-    email: "entrepreneur@payvidi.com",
+    email: "entrepreneur@payveri.com",
     full_name: "Alex Entrepreneur",
     role: "entrepreneur",
     accountType: "entrepreneur",
   },
-  "trader@payvidi.com": {
+  "trader@payveri.com": {
     id: "trader-1",
-    email: "trader@payvidi.com",
+    email: "trader@payveri.com",
     full_name: "Chris Trader",
     role: "trader",
     accountType: "trader",
   },
-  "creator@payvidi.com": {
+  "creator@payveri.com": {
     id: "creator-1",
-    email: "creator@payvidi.com",
+    email: "creator@payveri.com",
     full_name: "Maya Creator",
     role: "creator",
     accountType: "creator",
@@ -69,12 +69,12 @@ const DEMO_USERS: Record<string, User> = {
 }
 
 const DEMO_PASSWORDS: Record<string, string> = {
-  "admin@payvidi.com": "admin123",
+  "admin@payveri.com": "admin123",
   "john@designer.com": "freelancer123",
   "sarah@creative.com": "super123",
-  "entrepreneur@payvidi.com": "entrepreneur123",
-  "trader@payvidi.com": "trader123",
-  "creator@payvidi.com": "creator123",
+  "entrepreneur@payveri.com": "entrepreneur123",
+  "trader@payveri.com": "trader123",
+  "creator@payveri.com": "creator123",
 }
 
 // Store for new signup users
