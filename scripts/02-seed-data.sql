@@ -10,7 +10,7 @@ INSERT INTO platform_settings (key, value, description) VALUES
 
 -- Insert admin user
 INSERT INTO users (id, email, full_name, role) VALUES
-('00000000-0000-0000-0000-000000000001', 'admin@payvidi.com', 'PayVidi Admin', 'admin');
+('00000000-0000-0000-0000-000000000001', 'admin@payveri.com', 'PayVeri Admin', 'admin');
 
 -- Insert sample freelancers
 INSERT INTO users (id, email, full_name, role) VALUES

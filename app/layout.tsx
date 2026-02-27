@@ -2,9 +2,13 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'PayVeri - Secure File Preview & Payment Platform',
+  description: 'PayVeri helps freelancers securely share file previews with clients, manage feedback, and receive payments before delivery.',
   generator: 'v0.dev',
+  icons: {
+    icon: '/favicon-black.svg',
+    apple: '/favicon-white.svg',
+  },
 }
 
 export default function RootLayout({

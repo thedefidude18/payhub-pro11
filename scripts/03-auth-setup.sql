@@ -17,7 +17,7 @@ BEGIN
     VALUES (
       NEW.id,
       COALESCE(NEW.raw_user_meta_data->>'full_name', 'New User') || '''s Business',
-      'New freelancer on PayVidi',
+      'New freelancer on PayVeri',
       CASE 
         WHEN COALESCE(NEW.raw_user_meta_data->>'role', 'client') = 'superfreelancer' THEN 7.5
         ELSE 10.0
@@ -44,12 +44,12 @@ INSERT INTO auth.users (id, email, encrypted_password, email_confirmed_at, creat
 VALUES 
   (
     '00000000-0000-0000-0000-000000000001',
-    'admin@payvidi.com',
+    'admin@payveri.com',
     crypt('admin123', gen_salt('bf')),
     NOW(),
     NOW(),
     NOW(),
-    '{"full_name": "PayVidi Admin", "role": "admin"}',
+    '{"full_name": "PayVeri Admin", "role": "admin"}',
     false,
     'authenticated'
   ),
