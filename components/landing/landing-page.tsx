@@ -13,6 +13,11 @@ interface LandingPageProps {
 export function LandingPage({ onGetStarted }: LandingPageProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const handleGetStarted = () => {
+    console.log("[v0] Get Started button clicked")
+    onGetStarted()
+  }
+
   return (
     <div className="min-h-screen bg-payveri-black text-white">
       {/* Navigation */}
@@ -35,10 +40,10 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
               <a href="#about" className="text-gray-400 hover:text-payveri-lime transition-colors">
                 About
               </a>
-              <Button variant="outline" onClick={onGetStarted} className="border-payveri-purple text-payveri-purple hover:bg-payveri-purple/10">
+              <Button variant="outline" onClick={handleGetStarted} className="border-payveri-purple text-payveri-purple hover:bg-payveri-purple/10">
                 Sign In
               </Button>
-              <Button onClick={onGetStarted} className="bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
+              <Button onClick={handleGetStarted} className="bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
                 Get Started
               </Button>
             </div>
@@ -65,10 +70,10 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
                   About
                 </a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-payveri-purple/20">
-                  <Button variant="outline" onClick={onGetStarted} className="w-full border-payveri-purple text-payveri-purple hover:bg-payveri-purple/10">
+                  <Button variant="outline" onClick={handleGetStarted} className="w-full border-payveri-purple text-payveri-purple hover:bg-payveri-purple/10">
                     Sign In
                   </Button>
-                  <Button onClick={onGetStarted} className="w-full bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
+                  <Button onClick={handleGetStarted} className="w-full bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
                     Get Started
                   </Button>
                 </div>
@@ -97,7 +102,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
               paid faster than ever before.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" onClick={onGetStarted} className="w-full sm:w-auto bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
+              <Button size="lg" onClick={handleGetStarted} className="w-full sm:w-auto bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
                 Start Your Journey
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -312,7 +317,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
             business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" onClick={onGetStarted} className="w-full sm:w-auto bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
+            <Button size="lg" onClick={handleGetStarted} className="w-full sm:w-auto bg-payveri-lime text-payveri-black hover:bg-payveri-lime/90 font-semibold">
               Start Free Today
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
