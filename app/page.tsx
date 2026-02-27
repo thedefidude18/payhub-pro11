@@ -1114,6 +1114,7 @@ const FreelancerPaymentsPage = () => (
 // Main App Component with Authentication
 function PayVeriApp() {
   const { user, loading } = useAuth()
+  const [showLoginForm, setShowLoginForm] = useState(false)
 
   if (loading) {
     return (
@@ -1124,7 +1125,11 @@ function PayVeriApp() {
   }
 
   if (!user) {
-    return <LandingPage onGetStarted={() => {}} />
+    return showLoginForm ? (
+      <SimpleLoginForm />
+    ) : (
+      <LandingPage onGetStarted={() => setShowLoginForm(true)} />
+    )
   }
 
   // Show new dashboards for new account types
